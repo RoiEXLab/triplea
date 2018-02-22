@@ -3516,7 +3516,9 @@ public class UnitAttachment extends DefaultAttachment {
   @GameProperty(xmlProperty = true, gameProperty = false, adds = false)
   public void setIsMechanized(final String s) {}
 
-  private Map<String, ModifiableProperty<?>> createPropertyMap() {
+
+  @Override
+  public Map<String, ModifiableProperty<?>> getPropertyMap() {
     return ImmutableMap.<String, ModifiableProperty<?>>builder()
         .put("isAir",
             ModifiableProperty.of(
@@ -4127,10 +4129,5 @@ public class UnitAttachment extends DefaultAttachment {
         .put("isAAmovement", ModifiableProperty.<Boolean>of(this::setIsAAmovement, this::setIsAAmovement))
         .put("isTwoHit", ModifiableProperty.<Boolean>of(this::setIsTwoHit, this::setIsTwoHit))
         .build();
-  }
-
-  @Override
-  public Map<String, ModifiableProperty<?>> getPropertyMap() {
-    return createPropertyMap();
   }
 }
