@@ -1266,9 +1266,9 @@ public final class GameParser {
             .orElseThrow(() -> new GameParseException("Missing property definition for option: " + name))
             .setValue(itemValues);
       } catch (final GameParseException e) {
-        throw new GameParseException(e);
+        throw e;
       } catch (final Exception e) {
-        throw new IllegalStateException("Unexpected Exception while setting values for attachment" + attachment, e);
+        throw new GameParseException("Unexpected Exception while setting values for attachment" + attachment, e);
       }
 
       options.add(Tuple.of(name, itemValues));
