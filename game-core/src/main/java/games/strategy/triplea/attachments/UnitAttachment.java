@@ -3527,10 +3527,10 @@ public class UnitAttachment extends DefaultAttachment {
                 this::getIsAir,
                 this::resetIsAir))
         .put("isMechanized",
-            ModifiableProperty.ofWriteOnlyString(
+            MutableProperty.ofWriteOnlyString(
                 this::setIsMechanized))
         .put("isParatroop",
-            ModifiableProperty.ofWriteOnlyString(
+            MutableProperty.ofWriteOnlyString(
                 this::setIsParatroop))
         .put("isSea",
             MutableProperty.of(
