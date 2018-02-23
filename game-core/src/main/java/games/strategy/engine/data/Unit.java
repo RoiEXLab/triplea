@@ -88,15 +88,15 @@ public class Unit extends GameDataComponent implements DynamicallyModifiable {
   }
 
   public boolean isEquivalent(final Unit unit) {
-    if (m_type == null || m_owner == null) {
+    if ((m_type == null) || (m_owner == null)) {
       return false;
     }
-    return m_type.equals(unit.getType()) && m_owner.equals(unit.getOwner()) && m_hits == unit.getHits();
+    return m_type.equals(unit.getType()) && m_owner.equals(unit.getOwner()) && (m_hits == unit.getHits());
   }
 
   @Override
   public int hashCode() {
-    if (m_type == null || m_owner == null || m_uid == null || this.getData() == null) {
+    if ((m_type == null) || (m_owner == null) || (m_uid == null) || (this.getData() == null)) {
       final String text =
           "Unit.toString() -> Possible java de-serialization error: "
               + (m_type == null ? "Unit of UNKNOWN TYPE" : m_type.getName()) + " owned by " + (m_owner == null
@@ -112,7 +112,7 @@ public class Unit extends GameDataComponent implements DynamicallyModifiable {
   @Override
   public String toString() {
     // TODO: none of these should happen,... except that they did a couple times.
-    if (m_type == null || m_owner == null || m_uid == null || this.getData() == null) {
+    if ((m_type == null) || (m_owner == null) || (m_uid == null) || (this.getData() == null)) {
       final String text =
           "Unit.toString() -> Possible java de-serialization error: "
               + (m_type == null ? "Unit of UNKNOWN TYPE" : m_type.getName()) + " owned by " + (m_owner == null

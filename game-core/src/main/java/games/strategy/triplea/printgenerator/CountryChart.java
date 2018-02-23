@@ -52,11 +52,11 @@ class CountryChart {
         StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
       // Print Title
       final int numUnits = gameData.getUnitTypeList().size();
-      for (int i = 0; i < numUnits / 2 - 1 + numUnits % 2; i++) {
+      for (int i = 0; i < (((numUnits / 2) - 1) + (numUnits % 2)); i++) {
         countryFileWriter.write(",");
       }
       countryFileWriter.write("Setup Chart for the " + player.getName());
-      for (int i = 0; i < numUnits / 2 - numUnits % 2; i++) {
+      for (int i = 0; i < ((numUnits / 2) - (numUnits % 2)); i++) {
         countryFileWriter.write(",");
       }
       countryFileWriter.write("\r\n");
@@ -74,8 +74,7 @@ class CountryChart {
         countryFileWriter.write(currentTerritory.getName());
         final List<Map<UnitType, Integer>> currentList = infoMap.get(currentTerritory);
         for (final Map<UnitType, Integer> currentMap : currentList) {
-          for (final UnitType unitTypeHere : currentMap.keySet()) {
-            final int here = currentMap.get(unitTypeHere);
+          for (final int here : currentMap.values()) {
             countryFileWriter.write("," + here);
           }
         }
