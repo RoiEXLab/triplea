@@ -182,6 +182,7 @@ public class UserActionAttachment extends AbstractUserActionAttachment {
         .putAll(super.getPropertyMap())
         .put("activateTrigger",
             MutableProperty.of(
+                List.class,
                 this::setActivateTrigger,
                 this::setActivateTrigger,
                 this::getActivateTrigger,
