@@ -1263,7 +1263,9 @@ public final class GameParser {
       final String itemValues = (count.length() > 0 ? count + ":" : "") + value;
       try {
         Optional.ofNullable(attachmentMap.get(name))
-            .orElseThrow(() -> new GameParseException("Missing property definition for option: " + name))
+            .orElseThrow(() -> new GameParseException(String.format(
+                "Missing property definition for option '%s' in attachment '%s'",
+                name, attachment.getName())))
             .setValue(itemValues);
       } catch (final GameParseException e) {
         throw e;

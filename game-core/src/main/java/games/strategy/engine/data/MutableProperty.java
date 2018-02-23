@@ -131,6 +131,13 @@ public class MutableProperty<T> {
   }
 
   /**
+   * Convenience method to create an instance of this interface that only sets via the string value.
+   */
+  public static <T> MutableProperty<T> ofWriteOnlyString(final ThrowingConsumer<String, Exception> stringSetter) {
+    return of(noSetter(), stringSetter, noGetter(), noResetter());
+  }
+
+  /**
    * Convenience method to create an instance of this interface that just contains a direct
    * setter and getter. And no support for Strings as secondary setter.
    */
