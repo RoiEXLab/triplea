@@ -36,11 +36,11 @@ class PuInfo {
           StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
         // Print Title
         final int numResources = gameData.getResourceList().size();
-        for (int i = 0; i < numResources / 2 - 1 + numResources % 2; i++) {
+        for (int i = 0; i < (((numResources / 2) - 1) + (numResources % 2)); i++) {
           resourceWriter.write(",");
         }
         resourceWriter.write("Resource Chart");
-        for (int i = 0; i < numResources / 2 - numResources % 2; i++) {
+        for (int i = 0; i < ((numResources / 2) - (numResources % 2)); i++) {
           resourceWriter.write(",");
         }
         resourceWriter.write("\r\n");
@@ -54,8 +54,7 @@ class PuInfo {
         for (final PlayerID currentPlayer : gameData.getPlayerList()) {
           resourceWriter.write(currentPlayer.getName());
           final Map<Resource, Integer> resourceMap = infoMap.get(currentPlayer);
-          for (final Resource currentResource : resourceMap.keySet()) {
-            final int amountResource = resourceMap.get(currentResource);
+          for (final int amountResource : resourceMap.values()) {
             resourceWriter.write("," + amountResource);
           }
           resourceWriter.write("\r\n");
