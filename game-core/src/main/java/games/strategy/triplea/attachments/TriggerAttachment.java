@@ -2668,8 +2668,7 @@ public class TriggerAttachment extends AbstractTriggerAttachment {
                 this::getResource,
                 this::resetResource))
         .put("resourceCount",
-            MutableProperty.of(
-                Integer.class,
+            MutableProperty.ofInteger(
                 this::setResourceCount,
                 this::setResourceCount,
                 this::getResourceCount,
